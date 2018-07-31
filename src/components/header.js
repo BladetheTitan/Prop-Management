@@ -1,6 +1,6 @@
 import React from 'react';
 
-exportfunction Header() {
+export function Header() {
     return (
         <div className='header'>
             <h1 className='header__title'>Welcome to the HOA Manager!</h1>
