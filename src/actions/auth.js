@@ -4,7 +4,7 @@ import axios from 'axios';
 import { ROOT_URL } from '../config';
 
 import {
-    STORE_USER
+    AUTHENTICATE_USER
 } from './types'
 
 export function signUp(fields, success) {
@@ -12,8 +12,10 @@ export function signUp(fields, success) {
     return function (dispatch) {
         axios.post(`${ROOT_URL}/signUp`, fields);
             .then(response => {
+                    const { token } = response.data;
+                    localStorage.setItem('token', token);
                 dispatch({
-                    type: STORE_USER,
+                    type: AUTHENTICATE_USER,
                     payload: response.data
                 })
                 success();
