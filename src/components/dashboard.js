@@ -11,7 +11,7 @@ class Dashboard extends Component {
             tabs: [
                 {
                     title: 'Newsletter',
-                    active: false,
+                    active: true,
                     component: <h4>Hey There - Newsletter</h4>
                 },
                 {
@@ -23,12 +23,26 @@ class Dashboard extends Component {
         };
     }
     
+    handleTabChange = (title) => {
+        const tabs = this.state.tabs;
+        
+        tabs.map(tab => {
+            if(tab.title == title) {
+                tab.active = true;
+            } else {
+                tab.active = false
+            }
+        });
+        
+        this.setState({ tabs });
+    }
+    
     render() {
         return (
             <div className='dashboard'>
-                <TabNav tabs={this.state.tabs}/>;
+                <TabNav handleClick={(title) => this.handleTabChange(title)} tabs={this.state.tabs}/>;
             </div>
-        )
+        );
     }
   
 }
