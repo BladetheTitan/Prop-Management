@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 
 import { FormTitle } from '../formTitle';
-import { FormInput, FormButton } from '../formFields';
+import { FormInput, FormButton, FormTextArea } from '../formFields';
 import { TextLink } from '../textLink';
 
 class NewNewsletterForm extends Component {
@@ -11,38 +11,33 @@ class NewNewsletterForm extends Component {
         const { handleSubmit } = this.props;
         
         return (
-            <form onSubmit={handleSubmit} className='sign-in-form'>
-                <FormTitle className='sign-in-form__title' text='Login'/>
+            <form onSubmit={handleSubmit} className='new-newsletter-form'>
+                <FormTitle className='new-newsletter-form__title' text='New Newsletter'/>
                 <Field 
-                    className="sign-in-form__email"
-                    placeholder="Enter Email"
-                    name="email" 
-                    type="email"
-                    title="Email"
+                    className="new-newsletter-form__newsletter-title"
+                    placeholder="Title"
+                    name="title" 
+                    type="text"
+                    title="Title"
                     component={FormInput}
                 />
-                
                 <Field 
-                    className="sign-in-form__password"
-                    placeholder="Enter Password"
-                    name="password" 
-                    type="password"
-                    title="Password"
-                    component={FormInput}
+                    className="new-newsletter-form__body"
+                    placeholder="Body"
+                    name="body" 
+                    type="text"
+                    title="Body"
+                    component={FormTextArea}
                 />
-                
                 <Field 
-                    className="sign-in-form__login"
-                    name="login" 
+                    className="sign-in-form__submit"
+                    small={true}
+                    danger={true}
+                    name="submit" 
                     type="submit"
-                    title="Login"
+                    title="Submit"
                     component={FormButton}
                 />
-                
-                <div className='sign-in-form__text-links'>
-                    <TextLink to='/forgot' text='Forgot Password'/>
-                    <TextLink to='/signup' text='Not a member? Register here'/>
-                </div>
                 
             </form>
         );
