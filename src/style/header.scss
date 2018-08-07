@@ -1,6 +1,6 @@
 .header {
     grid-row: header-s/header-e;
-    grid-column: content-s/content-e
+    grid-column: content-s/content-e;
     
     display: grid;
     grid-template-columns: [s] 1fr [e];
