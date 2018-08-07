@@ -12,18 +12,18 @@ export default function(ComposedComponent) {
         }
         componentWillUpdate(nextProps) {
             if(!nextProps.authenticated) {
-                history.push('/')
+                history.push('/');
             }
         }
         render() {
-            return <ComposedComponent/>
+            return <ComposedComponent {...this.props}/>;
         }
     }
     
     function mapStateToProps(state) {
         const { authenticated } = state.auth;
-        return { authenticated }
+        return { authenticated };
     }
     
-    return connect(mapStateToProps)(Authentication)
+    return connect(mapStateToProps)(Authentication);
 }
