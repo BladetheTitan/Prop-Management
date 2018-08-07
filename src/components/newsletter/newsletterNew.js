@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 
+import NewNewsletterForm from './newsletterNewForm';
+
 class NewNewsletter extends Component {
+    
+    onSubmit = (fields) => {
+        console.log('trying to handle submit')
+    }
+    
     render() {
         return (
             <div className='new-newsletter'>   
-                form for new newsletter goes here
+                <NewNewsletterForm onSubmit={(event) => this.onSubmit(event)}/>
             </div>
         );
     }
